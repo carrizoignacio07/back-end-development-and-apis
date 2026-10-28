@@ -26,9 +26,20 @@
     "build-a-submission-form": true,
     "build-a-data-sanitizer": true,
     "build-a-weather-service-api": true,
+<<<<<<< HEAD
     "build-a-bank-api": true,
     "build-a-resource-monitor": true,
     "build-a-chat-app": false,
+=======
+<<<<<<< HEAD
+    "build-a-bank-api": true,
+    "build-a-resource-monitor": false,
+=======
+    "build-a-bank-api": false,
+    "build-a-resource-monitor": true,
+>>>>>>> 2798a2bf01faf1bb73c4eebc1e703f5017a5959b
+    "build-a-chat-app": true,
+>>>>>>> 21d6507b360010c8ed5c707bd3a80b61a4791a43
     "build-jwt-protected-routes": true
   },
   "chat.disableAIFeatures": true,
@@ -42,7 +53,15 @@
       "open": true,
       "showLoader": true,
       "timeout": 4000,
+<<<<<<< HEAD
       "url": "https://possessed-cackle-9gxxj7jrgp7hp5gq-8080.app.github.dev"
+=======
+<<<<<<< HEAD
+      "url": "https://hallowed-incantation-jpggqjqvx953pxqj-8080.app.github.dev"
+=======
+      "url": "https://gory-ghost-xg44v5v774j2pg69-8080.app.github.dev"
+>>>>>>> 2798a2bf01faf1bb73c4eebc1e703f5017a5959b
+>>>>>>> 21d6507b360010c8ed5c707bd3a80b61a4791a43
     }
   ],
   "terminal.integrated.defaultProfile.linux": "bash",

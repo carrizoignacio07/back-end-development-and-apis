@@ -5,11 +5,20 @@
   "main": "server.js",
   "scripts": {
     "start": "node server.js"
+<<<<<<< HEAD
   },
   "dependencies": {
     "ws": "^8.18.2"
+=======
+>>>>>>> 21d6507b360010c8ed5c707bd3a80b61a4791a43
   },
-  "keywords": ["node", "freecodecamp"],
+  "dependencies": {
+    "ws": "^8.22.0"
+  },
+  "keywords": [
+    "node",
+    "freecodecamp"
+  ],
   "license": "MIT",
   "type": "module"
 }
