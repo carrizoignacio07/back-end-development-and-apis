@@ -1,17 +1,37 @@
-import http from 'http';
-import fs from 'fs';
-import { WebSocketServer } from 'ws';
+import http from "http";
+import fs from "fs";
+import path from "path";
+import { WebSocketServer } from "ws";
 
 const PORT = 3001;
+
 const server = http.createServer((req, res) => {
-  fs.readFile("./public/index.html", (err, data) => {
+  const pathname = new URL(req.url, "http://localhost").pathname;
+
+  const filePath =
+    pathname === "/"
+      ? "./public/index.html"
+      : path.join("./public", pathname);
+
+  fs.readFile(filePath, (err, data) => {
     if (err) {
-      res.writeHead(500);
-      res.end("Error loading page");
+      res.writeHead(404);
+      res.end("Not Found");
       return;
     }
 
-    res.writeHead(200, { "Content-Type": "text/html" });
+    const ext = path.extname(filePath);
+
+    const contentTypes = {
+      ".html": "text/html",
+      ".js": "text/javascript",
+      ".css": "text/css",
+    };
+
+    res.writeHead(200, {
+      "Content-Type": contentTypes[ext] || "application/octet-stream",
+    });
+
     res.end(data);
   });
 });
@@ -24,50 +44,39 @@ wss.on("connection", (socket, req) => {
     "http://localhost",
   ).searchParams.get("username");
 
-  // Avisar que un usuario se conectó
-  const joinMessage = JSON.stringify({
+  const broadcast = (message) => {
+    const data = JSON.stringify(message);
+
+    wss.clients.forEach((client) => {
+      if (client.readyState === 1) {
+        client.send(data);
+      }
+    });
+  };
+
+  broadcast({
     type: "system",
     text: `${username} joined`,
   });
 
-  wss.clients.forEach((client) => {
-    if (client.readyState === 1) {
-      client.send(joinMessage);
-    }
-  });
-
-  // Distribuir mensajes del chat
   socket.on("message", (data) => {
     const { username, text } = JSON.parse(data.toString());
 
-    const chatMessage = JSON.stringify({
+    broadcast({
       type: "chat",
       username,
       text,
     });
-
-    wss.clients.forEach((client) => {
-      if (client.readyState === 1) {
-        client.send(chatMessage);
-      }
-    });
   });
 
-  // Avisar que un usuario se desconectó
   socket.on("close", () => {
-    const leaveMessage = JSON.stringify({
+    broadcast({
       type: "system",
       text: `${username} left`,
-    });
-
-    wss.clients.forEach((client) => {
-      if (client.readyState === 1) {
-        client.send(leaveMessage);
-      }
     });
   });
 });
 
 server.listen(PORT, () => {
-    console.log(`Chat server running at http://localhost:${PORT}`);
+  console.log(`Chat server running at http://localhost:${PORT}`);
 });
