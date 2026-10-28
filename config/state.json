@@ -1,13 +1,9 @@
 {
-  "currentProject": "build-a-resource-monitor",
+  "currentProject": null,
   "locale": "english",
   "lastSeed": {
-    "projectDashedName": "build-a-resource-monitor",
-    "lessonNumber": 15
+    "projectDashedName": null,
+    "lessonNumber": -1
   },
-<<<<<<< HEAD
-  "lastWatchChange": 19
-=======
-  "lastWatchChange": 34
->>>>>>> 2798a2bf01faf1bb73c4eebc1e703f5017a5959b
+  "lastWatchChange": -1
 }
