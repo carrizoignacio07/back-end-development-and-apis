@@ -27,6 +27,7 @@
     "build-a-data-sanitizer": true,
     "build-a-weather-service-api": true,
 <<<<<<< HEAD
+<<<<<<< HEAD
     "build-a-bank-api": true,
     "build-a-resource-monitor": true,
     "build-a-chat-app": false,
@@ -41,6 +42,12 @@
     "build-a-chat-app": true,
 >>>>>>> 21d6507b360010c8ed5c707bd3a80b61a4791a43
     "build-jwt-protected-routes": true
+=======
+    "build-a-bank-api": true,
+    "build-a-resource-monitor": true,
+    "build-a-chat-app": true,
+    "build-jwt-protected-routes": false
+>>>>>>> 0fe9f54 (workshop done)
   },
   "chat.disableAIFeatures": true,
   "files.autoSave": "off",
@@ -54,6 +61,7 @@
       "showLoader": true,
       "timeout": 4000,
 <<<<<<< HEAD
+<<<<<<< HEAD
       "url": "https://possessed-cackle-9gxxj7jrgp7hp5gq-8080.app.github.dev"
 =======
 <<<<<<< HEAD
@@ -62,6 +70,9 @@
       "url": "https://gory-ghost-xg44v5v774j2pg69-8080.app.github.dev"
 >>>>>>> 2798a2bf01faf1bb73c4eebc1e703f5017a5959b
 >>>>>>> 21d6507b360010c8ed5c707bd3a80b61a4791a43
+=======
+      "url": "https://zany-doodle-jpggqjqvpwqfpw65-8080.app.github.dev"
+>>>>>>> 0fe9f54 (workshop done)
     }
   ],
   "terminal.integrated.defaultProfile.linux": "bash",
